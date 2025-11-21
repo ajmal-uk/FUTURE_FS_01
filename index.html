@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Future Intern - Task 1 Protfolio</title>
     <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
     <div id="header">
@@ -32,10 +33,174 @@
                     <img src="/assets/images/user.png" alt="">
                 </div>
                 <div class="about-col-2">
-                    <h1>About Me</h1>
+                    <h1 class="sub-title">About Me</h1>
+                    <p>I am Muhammed Ajmal U K, a Computer Science graduate and MCA student skilled in full-stack development, AI chatbot building, and data analytics.</p>
+                    <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="opentab('skills')">Skils</p>
+                        <p class="tab-links"onclick="opentab('experience')">Experience</p>
+                        <p class="tab-links" onclick="opentab('education')">Education</p>
+                    </div>
+                    <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li><span>Fullstack</span><br>Developer</li>
+                            <li><span>AI/ML</span><br>Enthusiast</li>
+                            <li><span>Data</span><br>Analytics</li>
+                            <li><span>Prompt</span><br>Engineering</li>
+                            <li><span>Cloud</span><br>Deployment</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="experience">
+                        <ul>
+                            <li><span>Oct 2025</span><br>Data Analytics Virtual Internship at Deloitte Australia</li>
+                            <li><span>Nov–Dec 2025</span><br>Full Stack Web Development Internship at Future Interns</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span>2025–27</span><br>MCA from College of Engineering Trivandrum.</li>
+                            <li><span>2022-25</span><br>BSc Computer Science from MG College Iritty.</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <div id="services">
+        <div class="container">
+            <h1 class="sub-title">My Services</h1>
+            <div class="services-list">
+                <div>
+                    <i class="fas fa-pencil-ruler"></i>
+                    <h2>UI/UX Design</h2>
+                    <p>I design clean, modern, and intuitive user experiences for apps and websites.</p>
+                    <a href="#">Learn More</a>
+                </div>
+                <div>
+                    <i class="fas fa-mobile-alt"></i>
+                    <h2>App Development</h2>
+                    <p>I build cross-platform mobile applications using Flutter and modern UI frameworks.</p>
+                    <a href="#">Learn More</a>
+                </div>
+                <div>
+                    <i class="fas fa-code"></i>
+                    <h2>Web Development</h2>
+                    <p>I develop responsive and full-stack websites using Python, Flask, and modern tools.</p>
+                    <a href="#">Learn More</a>
+                </div>
+                <div>
+                    <i class="fas fa-paint-brush"></i>
+                    <h2>Logo Design</h2>
+                    <p>I create simple and memorable logos to give your brand a unique identity.</p>
+                    <a href="#">Learn More</a>
+                </div>
+                <div>
+                    <i class="fas fa-video"></i>
+                    <h2>Video Editing</h2>
+                    <p>I edit engaging videos for social media, business promotions, and content creators.</p>
+                    <a href="#">Learn More</a>
+                </div>
+                <div>
+                    <i class="fas fa-robot"></i>
+                    <h2>AI Content Generation</h2>
+                    <p>I create high-quality AI-powered content such as blogs, posts, scripts, and marketing text.</p>
+                    <a href="#">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   <div id="portfolio">
+        <div class="container">
+            <h1 class="sub-title">My Work</h1>
+            <div class="work-list">
+                <div class="work">
+                    <img src="/assets/images/work-1.png" alt="Byte AI">
+                    <div class="layer">
+                        <h3>Byte AI</h3>
+                        <p>
+                            Privacy-focused AI chatbot providing writing and coding assistance.
+                            Built using Python + Flask and deployed on PythonAnywhere.
+                        </p>
+                        <a href="https://byteai.pythonanywhere.com" target="_blank">
+                            <i class="fas fa-link"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="/assets/images/work-2.png" alt="Explore Together">
+                    <div class="layer">
+                        <h3>Explore Together</h3>
+                        <p>
+                            A travel-matching application that connects solo travelers based on shared interests.
+                            Built using Flutter (frontend) + Flask (backend).
+                        </p>
+                        <a href="https://github.com/ajmal-uk/explore-together.git" target="_blank">
+                            <i class="fas fa-link"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="/assets/images/work-3.png" alt="Dementia Virtual Memory Assistant">
+                    <div class="layer">
+                        <h3>Dementia Virtual Memory Assistant</h3>
+                        <p>
+                            AI-powered memory support tool with caregiver analytics. Uses Flask + Firebase +
+                            advanced prompt engineering.
+                        </p>
+                        <a href="https://github.com/ajmal-uk/dementia-virtual-memory.git" target="_blank">
+                            <i class="fas fa-link"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="btn">See more</a>
+        </div>
+    </div>
+
+    <div id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="contact-left">
+                    <h1 class="sub-title">Contact Me</h1>
+                    <p>ajmaluk.me@gmail.com</p>
+                    <div class="social-icon">
+                        <a href="">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/ajmal-uk" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/ajmal-uk" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://github.com/ajmal-uk" target="_blank">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-right">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents");
+
+        function opentab(tabname){
+            for(tablink of tablinks){
+                tablink.classList.remove("active-link");
+            }
+            for(tabcontent of tabcontents){
+                tabcontent.classList.remove("active-tab");
+            }
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab");
+        }
+    </script>
 </body>
 </html>
