@@ -6,50 +6,74 @@
     <title>Future Intern - Task 1 Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-* {
+        * {
             margin: 0;
             padding: 0;
             font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             box-sizing: border-box;
         }
-html {
+        html {
             scroll-behavior: smooth;
         }
-body {
+        body {
             background-color: #080808;
             color: #fff;
         }
-#header {
+
+        /* Toast Notification */
+        #toast {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 16px 24px;
+            border-radius: 8px;
+            color: white;
+            font-weight: 500;
+            z-index: 9999;
+            transform: translateX(200%);
+            transition: transform 0.4s ease-out;
+        }
+        #toast.show {
+            transform: translateX(0);
+        }
+        #toast.success {
+            background-color: #28a745;
+        }
+        #toast.error {
+            background-color: #dc3545;
+        }
+
+        #header {
             width: 100%;
             height: 100vh;
             background-image: url('/assets/images/background.png');
             background-size: cover;
             background-position: center;
         }
-.container {
+        .container {
             padding: 10px 10%;
         }
-nav {
+        nav {
             display: flex;
             align-items: center;
             justify-content: space-between;
             flex-wrap: wrap;
         }
-.logo {
+        .logo {
             width: 140px;
         }
-nav ul li {
+        nav ul li {
             display: inline-block;
             list-style: none;
             margin: 10px 20px;
         }
-nav ul li a {
+        nav ul li a {
             color: #fff;
             text-decoration: none;
             font-size: 18px;
             position: relative;
         }
-nav ul li a::after {
+        nav ul li a::after {
             content: '';
             width: 0;
             height: 3px;
@@ -59,59 +83,61 @@ nav ul li a::after {
             bottom: -6px;
             transition: 0.5s;
         }
-nav ul li a:hover::after {
+        nav ul li a:hover::after {
             width: 100%;
         }
-.header-text {
+        .header-text {
             margin-top: 20%;
             font-size: 30px;
         }
-.header-text h1 {
+        .header-text h1 {
             font-size: 60px;
             margin-top: 20px;
         }
-.header-text h1 span {
+        .header-text h1 span {
             color: #ff004f;
         }
 
-/* About Section */
-#about {
+        /* About Section */
+        #about {
             padding: 80px 0;
             color: #ababab;
             min-height: 100vh;
         }
-.row {
+        .row {
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
         }
-.about-col-1 {
+        .about-col-1 {
             flex-basis: 35%;
         }
-.about-col-1 img {
+        .about-col-1 img {
             width: 100%;
             border-radius: 15px;
         }
-.about-col-2 {
+        .about-col-2 {
             flex-basis: 60%;
         }
-.sub-title {
+        .sub-title {
             font-size: 60px;
             font-weight: 600;
             color: #fff;
         }
-.tab-titles {
+        .tab-titles {
             display: flex;
-            margin: 20px 0 40px;
+            margin: 20px 0 20px;
+            flex-wrap: wrap;
         }
-.tab-links {
-            margin-right: 50px;
+        .tab-links {
+            margin-right: 30px;
             font-size: 18px;
             font-weight: 500;
             cursor: pointer;
             position: relative;
+            white-space: nowrap;
         }
-.tab-links::after {
+        .tab-links::after {
             content: '';
             width: 0;
             height: 3px;
@@ -121,51 +147,55 @@ nav ul li a:hover::after {
             bottom: -8px;
             transition: 0.5s;
         }
-.tab-links.active-link:after {
+        .tab-links.active-link::after {
             width: 50%;
         }
-.tab-contents ul li {
+        .tab-contents ul li {
             list-style: none;
-            margin: 10px 0;
+            margin: 12px 0;
+            line-height: 1.5;
         }
-.tab-contents ul li span {
-            color: #b54769;
+        .tab-contents ul li span {
+            color: #ff004f;
+            font-weight: 600;
+            display: block;
             font-size: 14px;
+            margin-bottom: 4px;
         }
-.tab-contents {
+        .tab-contents {
             display: none;
         }
-.tab-contents.active-tab {
+        .tab-contents.active-tab {
             display: block;
         }
 
-/* Services Section */
-#services {
+        /* Services Section */
+        #services {
             padding: 80px 0;
             min-height: 100vh;
         }
-.services {
+        .services {
             padding: 30px 0;
         }
-.services-list {
+        .services-list {
             display: grid;
             grid-gap: 40px;
             margin-top: 50px;
         }
-.services-list {
+        .services-list {
             grid-template-columns: 1fr;
         }
-@media (min-width: 601px) {
-.services-list {
+        @media (min-width: 601px) {
+            .services-list {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
-@media (min-width: 992px) {
-.services-list {
+        @media (min-width: 992px) {
+            .services-list {
                 grid-template-columns: repeat(3, 1fr);
             }
         }
-.services-list div {
+        .services-list div {
             background: #262626;
             padding: 40px;
             font-size: 13px;
@@ -173,50 +203,49 @@ nav ul li a:hover::after {
             border-radius: 10px;
             transition: background 0.5s, transform 0.5s;
         }
-.services-list div i {
+        .services-list div i {
             font-size: 50px;
             margin-bottom: 30px;
+            color: #ff004f;
         }
-.services-list div h2 {
+        .services-list div h2 {
             font-size: 30px;
             font-weight: 500;
             margin-bottom: 15px;
         }
-.services-list div a {
-            text-decoration: none;
-            color: #fff;
-            font-size: 12px;
-            margin-top: 20px;
-            display: inline-block;
-        }
-.services-list div:hover {
-            background-color: #ff004f;
+        .services-list div:hover {
+            background-color: #3a0023;
             transform: translateY(-10px);
         }
 
-/* Portfolio Section */
-#portfolio {
+        /* Portfolio Section */
+        #portfolio {
             padding: 80px 0;
             min-height: 100vh;
         }
-.work-list {
+        .work-list {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             grid-gap: 40px;
             margin-top: 50px;
         }
-.work {
+        .work {
             border-radius: 10px;
             position: relative;
             overflow: hidden;
         }
-.work img {
+        /* Portfolio Section - Fixed Image Size */
+        .work img {
             width: 100%;
+            max-width: 400px; /* Optional: cap width on large screens */
+            height: 300px;
+            object-fit: cover;
+            object-position: center;
             border-radius: 10px;
             display: block;
             transition: transform 0.5s;
         }
-.layer {
+        .layer {
             width: 100%;
             height: 0;
             background: linear-gradient(rgba(0,0,0,0.6), #ff004f);
@@ -234,11 +263,12 @@ nav ul li a:hover::after {
             font-size: 14px;
             transition: height 0.5s;
         }
-.layer h3 {
+        .layer h3 {
             font-weight: 500;
             margin-bottom: 20px;
+            color: white;
         }
-.layer a {
+        .layer a {
             margin-top: 20px;
             color: #ff004f;
             text-decoration: none;
@@ -250,13 +280,13 @@ nav ul li a:hover::after {
             border-radius: 50%;
             text-align: center;
         }
-.work:hover img {
+        .work:hover img {
             transform: scale(1.1);
         }
-.work:hover .layer {
+        .work:hover .layer {
             height: 100%
         }
-.btn {
+        .btn {
             display: block;
             margin: 50px auto;
             width: fit-content;
@@ -267,218 +297,228 @@ nav ul li a:hover::after {
             color: #fff;
             transition: background 0.5s;
         }
-.btn:hover {
+        .btn:hover {
             background: #ff004f;
         }
 
-/* Contact Section — FIXED */
-#contact {
-    padding: 80px 0 0;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
+        /* Contact Section */
+        #contact {
+            padding: 80px 0 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .contact-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        .contact-left {
+            flex-basis: 35%;
+        }
+        .contact-right {
+            flex-basis: 60%;
+        }
+        .contact-left p {
+            margin-top: 30px;
+        }
+        .contact-left p i {
+            color: #ff004f;
+            margin-right: 15px;
+            font-size: 25px;
+        }
+        .social-icons {
+            margin-top: 30px;
+        }
+        .social-icons a {
+            text-decoration: none;
+            font-size: 30px;
+            margin-right: 15px;
+            color: #ababab;
+            display: inline-block;
+            transition: transform 0.5s;
+        }
+        .social-icons a:hover {
+            color: #ff004f;
+            transform: translateY(-5px);
+        }
+        .btn.btn2 {
+            display: inline-block;
+            background: #ff004f;
+            border: none;
+            cursor: pointer;
+        }
+        .contact-right form {
+            width: 100%;
+        }
+        form input,
+        form textarea {
+            width: 100%;
+            border: 0;
+            outline: none;
+            background: #262626;
+            padding: 15px;
+            margin: 15px 0;
+            color: #fff;
+            font-size: 18px;
+            border-radius: 6px;
+        }
+        form .btn2 {
+            padding: 14px 60px;
+            font-size: 18px;
+            margin-top: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .btn2 .spinner {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid transparent;
+            border-top: 2px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .btn2.loading .spinner {
+            display: inline-block;
+        }
+        .btn2.loading span {
+            opacity: 0;
+        }
 
-.contact-container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 30px;
-}
+        /* Coffee Button */
+        .coffee-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+            padding: 12px 24px;
+            background: #ffdd00;
+            color: #000;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 6px;
+            width: fit-content;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .coffee-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(255, 221, 0, 0.4);
+        }
+        .coffee-btn i {
+            font-size: 20px;
+        }
 
-.contact-left {
-    flex-basis: 35%;
-}
+        /* Copyright */
+        .copyright {
+            width: 100%;
+            text-align: center;
+            padding: 20px 0;
+            background: #262626;
+            font-weight: 300;
+            margin: 0;
+            position: static;
+            border-top: 1px solid #333;
+        }
+        .copyright i {
+            color: #ff004f;
+        }
 
-.contact-right {
-    flex-basis: 60%;
-}
+        /* Mobile Responsive */
+        nav .fa-bars, nav .fa-times {
+            display: none;
+        }
 
-.contact-left p {
-    margin-top: 30px;
-}
+        @media only screen and (max-width: 600px) {
+            #header {
+                background-image: url('/assets/images/phone-background.png');
+            }
+            .header-text {
+                margin-top: 100%;
+                font-size: 16px;
+            }
+            .header-text h1 {
+                font-size: 30px;
+            }
+            .about-col-1 img {
+                width: 70%;
+                margin: 0 auto;
+            }
+            nav .fa-bars {
+                display: block;
+                font-size: 25px;
+                cursor: pointer;
+            }
+            nav ul {
+                background: #ff004f;
+                position: fixed;
+                top: 0;
+                right: -200px;
+                width: 200px;
+                height: 100vh;
+                padding-top: 50px;
+                z-index: 1000;
+                transition: right 0.5s;
+            }
+            nav ul li {
+                display: block;
+                margin: 25px;
+            }
+            nav ul .fa-times {
+                display: block;
+                position: absolute;
+                top: 25px;
+                left: 25px;
+                cursor: pointer;
+                font-size: 25px;
+                color: #fff;
+            }
+            .sub-title {
+                font-size: 40px;
+            }
+            .about-col-1, .about-col-2 {
+                flex-basis: 100%;
+            }
+            .about-col-1 {
+                margin-bottom: 30px;
+                display: flex;
+                justify-content: center;
+            }
+            .tab-links {
+                margin-right: 15px;
+                font-size: 15px;
+            }
+            .contact-left, .contact-right {
+                flex-basis: 100%;
+            }
+            .contact-container {
+                flex-direction: column;
+                gap: 30px;
+            }
+            .copyright {
+                font-size: 14px;
+                padding: 15px 0;
+            }
+        }
 
-.contact-left p i {
-    color: #ff004f;
-    margin-right: 15px;
-    font-size: 25px;
-}
-
-.social-icons {
-    margin-top: 30px;
-}
-
-.social-icons a {
-    text-decoration: none;
-    font-size: 30px;
-    margin-right: 15px;
-    color: #ababab;
-    display: inline-block;
-    transition: transform 0.5s;
-}
-
-.social-icons a:hover {
-    color: #ff004f;
-    transform: translateY(-5px);
-}
-
-.btn.btn2 {
-    display: inline-block;
-    background: #ff004f;
-    border: none;
-    cursor: pointer;
-}
-
-.contact-right form {
-    width: 100%;
-}
-
-form input,
-form textarea {
-    width: 100%;
-    border: 0;
-    outline: none;
-    background: #262626;
-    padding: 15px;
-    margin: 15px 0;
-    color: #fff;
-    font-size: 18px;
-    border-radius: 6px;
-}
-
-form .btn2 {
-    padding: 14px 60px;
-    font-size: 18px;
-    margin-top: 20px;
-    cursor: pointer;
-}
-
-/* Copyright — now properly at bottom of contact section */
-.copyright {
-    width: 100%;
-    text-align: center;
-    padding: 20px 0;
-    background: #262626;
-    font-weight: 300;
-    margin: 0;
-    position: static;
-    border-top: 1px solid #333;
-}
-
-.copyright i {
-    color: #ff004f;
-}
-
-/* Mobile Responsive CSS */
-nav .fa-bars, nav .fa-times {
-    display: none;
-}
-
-@media only screen and (max-width: 600px) {
-    #header {
-        background-image: url('/assets/images/phone-background.png');
-    }
-
-    .header-text {
-        margin-top: 100%;
-        font-size: 16px;
-    }
-
-    .header-text h1 {
-        font-size: 30px;
-    }
-
-    /* About section: Center and reduce image */
-    .about-col-1 img {
-        width: 70%;
-        margin: 0 auto;
-    }
-
-    /* Burger Menu Icon */
-    nav .fa-bars {
-        display: block;
-        font-size: 25px;
-        cursor: pointer;
-    }
-
-    nav ul {
-        background: #ff004f;
-        position: fixed;
-        top: 0;
-        right: -200px;
-        width: 200px;
-        height: 100vh;
-        padding-top: 50px;
-        z-index: 1000;
-        transition: right 0.5s;
-    }
-
-    nav ul li {
-        display: block;
-        margin: 25px;
-    }
-
-    nav ul .fa-times {
-        display: block;
-        position: absolute;
-        top: 25px;
-        left: 25px;
-        cursor: pointer;
-        font-size: 25px;
-        color: #fff;
-    }
-
-    .sub-title {
-        font-size: 40px;
-    }
-
-    .about-col-1,
-    .about-col-2 {
-        flex-basis: 100%;
-    }
-
-    .about-col-1 {
-        margin-bottom: 30px;
-        display: flex;
-        justify-content: center;
-    }
-
-    .about-col-2 p {
-        font-size: 14px;
-    }
-
-    .tab-links {
-        font-size: 16px;
-        margin-right: 20px;
-    }
-
-    .contact-left,
-    .contact-right {
-        flex-basis: 100%;
-    }
-
-    /* Update contact container on mobile */
-    .contact-container {
-        flex-direction: column;
-        gap: 30px;
-    }
-
-    .copyright {
-        font-size: 14px;
-        padding: 15px 0;
-    }
-}
-
-/* Ensure all main sections are at least full viewport height */
-#about,
-#services,
-#portfolio {
-    min-height: 100vh;
-}
+        #about, #services, #portfolio {
+            min-height: 100vh;
+        }
     </style>
 </head>
 <body>
+    <!-- Toast Notification -->
+    <div id="toast"></div>
+
     <div id="header">
         <div class="container">
             <nav>
@@ -494,8 +534,8 @@ nav .fa-bars, nav .fa-times {
                 <i class="fas fa-bars" onclick="openmenu()"></i>
             </nav>
             <div class="header-text">
-                <p>Fullstack Developer</p>
                 <h1>Hi, I'm <span>Ajmal<br></span></h1>
+                <p>Fullstack Developer & AI Enthusiast</p>
             </div>
         </div>
     </div>
@@ -508,31 +548,42 @@ nav .fa-bars, nav .fa-times {
                 </div>
                 <div class="about-col-2">
                     <h1 class="sub-title">About Me</h1>
-                    <p>I am Muhammed Ajmal U K, a Computer Science graduate and MCA student skilled in full-stack development, AI chatbot building, and data analytics.</p>
+                    <p>I'm Muhammed Ajmal U K — a passionate Full-Stack Developer, MCA student, and AI/ML enthusiast based in Trivandrum, India. With a strong foundation in Computer Science and hands-on experience in building scalable web and mobile applications, I specialize in creating clean, user-friendly interfaces backed by robust Python and Flutter systems. I love leveraging AI to solve real-world problems — from dementia support tools to privacy-first chatbots.</p>
                     <div class="tab-titles">
                         <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
                         <p class="tab-links" onclick="opentab('experience')">Experience</p>
                         <p class="tab-links" onclick="opentab('education')">Education</p>
+                        <p class="tab-links" onclick="opentab('certifications')">Certifications</p>
                     </div>
                     <div class="tab-contents active-tab" id="skills">
                         <ul>
-                            <li><span>Fullstack</span><br>Developer</li>
-                            <li><span>AI/ML</span><br>Enthusiast</li>
-                            <li><span>Data</span><br>Analytics</li>
-                            <li><span>Prompt</span><br>Engineering</li>
-                            <li><span>Cloud</span><br>Deployment</li>
+                            <li><span>Full-Stack Development</span>Python, Flutter, Flask, Firebase, SQL</li>
+                            <li><span>AI & LLM Integration</span>Prompt Engineering, Chatbots, Gemini/Groq APIs</li>
+                            <li><span>UI/UX & Design</span>Modern, responsive, user-centric interfaces</li>
+                            <li><span>Cloud & DevOps</span>PythonAnywhere, Firebase, Netlify, CI/CD workflows</li>
+                            <li><span>Data Analytics</span>Excel, Tableau, Forage simulations</li>
                         </ul>
                     </div>
                     <div class="tab-contents" id="experience">
                         <ul>
-                            <li><span>Oct 2025</span><br>Data Analytics Virtual Internship at Deloitte Australia</li>
-                            <li><span>Nov–Dec 2025</span><br>Full Stack Web Development Internship at Future Interns</li>
+                            <li><span>Nov 2025</span>Deloitte Australia — Data Analytics Virtual Experience (Forage)</li>
+                            <li><span>Nov–Dec 2025</span>Full Stack Web Development Intern at Future Interns</li>
                         </ul>
                     </div>
                     <div class="tab-contents" id="education">
                         <ul>
-                            <li><span>2025–27</span><br>MCA from College of Engineering Trivandrum.</li>
-                            <li><span>2022-25</span><br>BSc Computer Science from MG College Iritty.</li>
+                            <li><span>2025–2027</span>Master of Computer Applications (MCA), College of Engineering, Trivandrum</li>
+                            <li><span>2022–2025</span>B.Sc. Computer Science (CGPA: 8.97), Mahatma Gandhi College, Iritty</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="certifications">
+                        <ul>
+                            <li><span>IBM</span>Software Engineering (Coursera)</li>
+                            <li><span>Google & Kaggle</span>AI Agent Development (5-Day)</li>
+                            <li><span>Google</span>Cloud Arcade Facilitator (Milestone 3)</li>
+                            <li><span>Oracle</span>OCI AI Foundations Associate</li>
+                            <li><span>Oracle</span>AI Agent Studio Foundations</li>
+                            <li><span>NCC</span>Sergeant (B & C Certificates)</li>
                         </ul>
                     </div>
                 </div>
@@ -548,37 +599,31 @@ nav .fa-bars, nav .fa-times {
                     <i class="fas fa-pencil-ruler"></i>
                     <h2>UI/UX Design</h2>
                     <p>I design clean, modern, and intuitive user experiences for apps and websites.</p>
-                    <a href="#">Learn More</a>
                 </div>
                 <div>
                     <i class="fas fa-mobile-alt"></i>
                     <h2>App Development</h2>
                     <p>I build cross-platform mobile applications using Flutter and modern UI frameworks.</p>
-                    <a href="#">Learn More</a>
                 </div>
                 <div>
                     <i class="fas fa-code"></i>
                     <h2>Web Development</h2>
                     <p>I develop responsive and full-stack websites using Python, Flask, and modern tools.</p>
-                    <a href="#">Learn More</a>
                 </div>
                 <div>
                     <i class="fas fa-paint-brush"></i>
                     <h2>Logo Design</h2>
                     <p>I create simple and memorable logos to give your brand a unique identity.</p>
-                    <a href="#">Learn More</a>
                 </div>
                 <div>
                     <i class="fas fa-video"></i>
                     <h2>Video Editing</h2>
                     <p>I edit engaging videos for social media, business promotions, and content creators.</p>
-                    <a href="#">Learn More</a>
                 </div>
                 <div>
                     <i class="fas fa-robot"></i>
                     <h2>AI Content Generation</h2>
                     <p>I create high-quality AI-powered content such as blogs, posts, scripts, and marketing text.</p>
-                    <a href="#">Learn More</a>
                 </div>
             </div>
         </div>
@@ -589,7 +634,7 @@ nav .fa-bars, nav .fa-times {
             <h1 class="sub-title">My Work</h1>
             <div class="work-list">
                 <div class="work">
-                    <img src="/assets/images/work-1.png" alt="Byte AI">
+                    <img src="/assets/images/byte.png" alt="Byte AI">
                     <div class="layer">
                         <h3>Byte AI</h3>
                         <p>Privacy-focused AI chatbot providing writing and coding assistance. Built using Python + Flask.</p>
@@ -597,23 +642,23 @@ nav .fa-bars, nav .fa-times {
                     </div>
                 </div>
                 <div class="work">
-                    <img src="/assets/images/work-2.png" alt="Explore Together">
+                    <img src="/assets/images/explore.png" alt="Explore Together">
                     <div class="layer">
                         <h3>Explore Together</h3>
-                        <p>A travel-matching application connecting solo travelers based on shared interests. Built with Flutter + Flask.</p>
-                        <a href="https://github.com/ajmal-uk/explore-together.git" target="_blank"><i class="fas fa-link"></i></a>
+                        <p>A travel-matching application connecting solo travelers based on shared interests. Built with Flutter + Firebase.</p>
+                        <a href="https://github.com/ajmal-uk/explore-together" target="_blank"><i class="fas fa-link"></i></a>
                     </div>
                 </div>
                 <div class="work">
-                    <img src="/assets/images/work-3.png" alt="Dementia Virtual Assistant">
+                    <img src="/assets/images/dementia.png" alt="Dementia Virtual Assistant">
                     <div class="layer">
                         <h3>Dementia Virtual Assistant</h3>
-                        <p>AI-powered memory support tool with caregiver analytics. Uses Flask + Firebase.</p>
-                        <a href="https://github.com/ajmal-uk/dementia-virtual-memory.git" target="_blank"><i class="fas fa-link"></i></a>
+                        <p>AI-powered memory support tool with caregiver analytics. Uses Flask + Firebase + DeepFace.</p>
+                        <a href="https://github.com/ajmal-uk/dementia-virtual-memory" target="_blank"><i class="fas fa-link"></i></a>
                     </div>
                 </div>
             </div>
-            <a href="#" class="btn">See more</a>
+            <a href="/projects.html" class="btn">See more</a>
         </div>
     </div>
 
@@ -623,19 +668,25 @@ nav .fa-bars, nav .fa-times {
                 <h1 class="sub-title">Contact Me</h1>
                 <p><i class="fas fa-paper-plane"></i>ajmaluk.me@gmail.com</p>
                 <div class="social-icons">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
                     <a href="https://www.linkedin.com/in/ajmal-uk" target="_blank"><i class="fab fa-linkedin"></i></a>
                     <a href="https://github.com/ajmal-uk" target="_blank"><i class="fab fa-github"></i></a>
                     <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
                 </div>
-                <a href="/assets/images/my-cv.pdf" class="btn btn2">Download CV</a>
+                <a href="https://buymeacoffee.com/ajmal.uk" class="coffee-btn" target="_blank">
+                    <i class="fas fa-coffee"></i> Buy Me a Coffee
+                </a>
+                <a href="/assets/images/my-cv.pdf" class="btn btn2" style="margin-top: 20px;">Download CV</a>
             </div>
             <div class="contact-right">
                 <form name="contact-form" class="contact-form">
                     <input type="text" name="name" placeholder="Your Name" required>
                     <input type="email" name="email" placeholder="Your Email" required>
-                    <textarea name="message" rows="6" placeholder="Your Message"></textarea>
-                    <button type="submit" class="btn btn2">Submit</button>
+                    <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+                    <button type="submit" class="btn btn2">
+                        <span>Submit</span>
+                        <div class="spinner"></div>
+                    </button>
                 </form>
             </div>
         </div>
@@ -646,31 +697,9 @@ nav .fa-bars, nav .fa-times {
 
     <script>
         // Tab switching logic
-        var tablinks = document.getElementsByClassName("tab-links");
-        var tabcontents = document.getElementsByClassName("tab-contents");
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbxSpUI78MBNg7B7QAg_0gSiADNTljJ-OXqw9JWJiKDb51z-CXxmxvVMnzjfGGz88_iA/exec';
-        const form = document.forms['contact-form'];
-
-        form.addEventListener('submit', e => {
-            e.preventDefault();
-            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-                .then(response => {
-                    return response.text().then(text => {
-                        try { return JSON.parse(text); } catch (err) { return text; }
-                    });
-                })
-                .then(result => {
-                    console.log('Success!', result);
-                    alert('Submitted successfully');
-                    form.reset();
-                })
-                .catch(error => {
-                    console.error('Error!', error);
-                    alert('Submission failed — check console for details');
-                });
-        });
-
         function opentab(tabname) {
+            const tablinks = document.getElementsByClassName("tab-links");
+            const tabcontents = document.getElementsByClassName("tab-contents");
             for (let tablink of tablinks) {
                 tablink.classList.remove("active-link");
             }
@@ -681,7 +710,7 @@ nav .fa-bars, nav .fa-times {
             document.getElementById(tabname).classList.add("active-tab");
         }
 
-        // Mobile Menu Logic
+        // Mobile Menu
         var sidemenu = document.getElementById('sidemenu');
         function openmenu() {
             sidemenu.style.right = "0";
@@ -689,6 +718,44 @@ nav .fa-bars, nav .fa-times {
         function closemenu() {
             sidemenu.style.right = "-200px";
         }
+
+        // Toast
+        function showToast(message, isSuccess) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.className = `show ${isSuccess ? 'success' : 'error'}`;
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Form Submission with Loading & Toast
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxSpUI78MBNg7B7QAg_0gSiADNTljJ-OXqw9JWJiKDb51z-CXxmxvVMnzjfGGz88_iA/exec';
+        const form = document.forms['contact-form'];
+        const submitBtn = form.querySelector('.btn2');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            submitBtn.classList.add('loading');
+
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => {
+                    return response.text().then(text => {
+                        try { return JSON.parse(text); } catch (err) { return text; }
+                    });
+                })
+                .then(result => {
+                    showToast('Message sent successfully! 🎉', true);
+                    form.reset();
+                })
+                .catch(error => {
+                    console.error('Error!', error);
+                    showToast('Failed to send message. Please try again.', false);
+                })
+                .finally(() => {
+                    submitBtn.classList.remove('loading');
+                });
+        });
     </script>
 </body>
 </html>

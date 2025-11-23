@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Projects | Ajmal U K</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #080808;
+            color: #fff;
+        }
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        /* --- Navigation Bar Styling --- */
+        #navbar-section {
+            width: 100%;
+            background-color: #151515; /* Slightly lighter than body for separation */
+            border-bottom: 1px solid #333;
+            position: sticky; /* Keeps nav visible while scrolling */
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        .container {
+            padding: 10px 10%; /* Creates the Left and Right Gap */
+            max-width: 1400px; /* Prevents it from getting too wide on huge screens */
+            margin: 0 auto;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 15px 0;
+        }
+
+        .logo {
+            width: 140px;
+        }
+
+        nav ul li {
+            display: inline-block;
+            list-style: none;
+            margin: 10px 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            width: 0;
+            height: 3px;
+            background: #ff004f;
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            transition: 0.5s;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* --- Project Grid Section --- */
+        #project-page {
+            padding: 80px 0;
+        }
+
+        .page-title {
+            font-size: 50px;
+            font-weight: 600;
+            margin-bottom: 60px;
+            text-align: center;
+        }
+        .page-title span {
+            color: #ff004f;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-gap: 40px;
+        }
+
+        /* Card Design */
+        .project-card {
+            background: #262626;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.5s, box-shadow 0.5s;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid transparent;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: #ff004f;
+            box-shadow: 0 10px 20px rgba(255, 0, 79, 0.15);
+        }
+
+        /* Thumbnail Area */
+        .card-img-container {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .card-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .project-card:hover .card-img-container img {
+            transform: scale(1.1);
+        }
+
+        /* Content Area */
+        .card-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-content h2 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        /* Tech Stack Tags */
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .tag {
+            font-size: 12px;
+            background: rgba(255, 0, 79, 0.1);
+            color: #ff004f;
+            padding: 5px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 0, 79, 0.3);
+            font-weight: 500;
+        }
+
+        .card-content p {
+            font-size: 14px;
+            color: #ababab;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+
+        /* Action Buttons */
+        .card-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: auto;
+        }
+
+        .action-btn {
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: #ff004f;
+            color: white;
+            border: 1px solid #ff004f;
+        }
+
+        .btn-primary:hover {
+            background: #d40042;
+        }
+
+        /* Footer */
+        .copyright {
+            width: 100%;
+            text-align: center;
+            padding: 25px 0;
+            background: #262626;
+            font-weight: 300;
+            margin-top: 50px;
+            border-top: 1px solid #333;
+        }
+        .copyright i {
+            color: #ff004f;
+        }
+
+        /* --- Mobile Responsive Styling --- */
+        nav .fa-bars, nav .fa-times {
+            display: none;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .page-title {
+                font-size: 35px;
+            }
+            
+            nav .fa-bars {
+                display: block;
+                font-size: 25px;
+                cursor: pointer;
+                color: #fff;
+            }
+
+            /* Mobile Sidebar Styling */
+            nav ul {
+                background: #ff004f;
+                position: fixed;
+                top: 0;
+                right: -200px; /* Hidden by default */
+                width: 200px;
+                height: 100vh;
+                padding-top: 50px;
+                z-index: 2000;
+                transition: right 0.5s;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+            }
+
+            nav ul li {
+                display: block;
+                margin: 25px;
+            }
+
+            nav ul .fa-times {
+                display: block;
+                position: absolute;
+                top: 25px;
+                left: 25px;
+                cursor: pointer;
+                color: #fff;
+                font-size: 25px;
+            }
+
+            .container {
+                padding: 10px 5%; /* Smaller gap for mobile */
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="navbar-section">
+        <div class="container">
+            <nav>
+                <a href="/">
+                    <img src="/assets/images/logo.png" class="logo" alt="logo">
+                </a>
+                <ul id="sidemenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                    <i class="fas fa-times" onclick="closemenu()"></i>
+                </ul>
+                <i class="fas fa-bars" onclick="openmenu()"></i>
+            </nav>
+        </div>
+    </div>
+
+    <div id="project-page">
+        <div class="container">
+            <h1 class="page-title">All <span>Projects</span></h1>
+            
+            <div class="project-grid">
+
+                <div class="project-card">
+                    <div class="card-img-container">
+                        <img src="/assets/images/dementia.png" alt="Dementia Virtual Assistant">
+                    </div>
+                    <div class="card-content">
+                        <h2>Dementia Virtual Assistant</h2>
+                        <div class="tech-stack">
+                            <span class="tag">Flutter</span>
+                            <span class="tag">Python (Flask)</span>
+                            <span class="tag">Firebase</span>
+                            <span class="tag">DeepFace</span>
+                        </div>
+                        <p>A safety-focused mobile app for dementia patient support featuring caregiver–patient roles, task reminders, diary, and memory gallery. Includes on-device member identification using DeepFace and real-time location visibility.</p>
+                        <div class="card-actions">
+                            <a href="https://github.com/ajmal-uk/dementia-virtual-memory" target="_blank" class="action-btn btn-primary">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="card-img-container">
+                        <img src="/assets/images/toolpix.png" alt="ToolPix" onerror="this.src='https://placehold.co/600x400/222/ff004f?text=ToolPix'">
+                    </div>
+                    <div class="card-content">
+                        <h2>ToolPix — AI Tools Platform</h2>
+                        <div class="tech-stack">
+                            <span class="tag">Flask</span>
+                            <span class="tag">Gemini API</span>
+                            <span class="tag">Tailwind</span>
+                            <span class="tag">AI SEO</span>
+                        </div>
+                        <p>Online productivity hub offering student-focused utilities including AI code generation, compilers, and efficiency tools. Achieved 10K+ organic clicks using AI-optimized SEO.</p>
+                        <div class="card-actions">
+                            <a href="https://toolpix.pythonanywhere.com" target="_blank" class="action-btn btn-primary">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="card-img-container">
+                        <img src="/assets/images/zymail.png" alt="ZyMail" onerror="this.src='https://placehold.co/600x400/222/ff004f?text=ZyMail'">
+                    </div>
+                    <div class="card-content">
+                        <h2>ZyMail — Temp Email Service</h2>
+                        <div class="tech-stack">
+                            <span class="tag">Flask</span>
+                            <span class="tag">Mail.tm API</span>
+                            <span class="tag">SEO</span>
+                        </div>
+                        <p>A fast and lightweight temporary email generator with seamless inbox creation and message retrieval through the Mail.tm API. SEO-optimized to rank for temp-mail keywords.</p>
+                        <div class="card-actions">
+                            <a href="https://zymail.pythonanywhere.com" target="_blank" class="action-btn btn-primary">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="card-img-container">
+                        <img src="/assets/images/explore.png" alt="Explore Together">
+                    </div>
+                    <div class="card-content">
+                        <h2>Explore Together</h2>
+                        <div class="tech-stack">
+                            <span class="tag">Flutter</span>
+                            <span class="tag">Firebase</span>
+                            <span class="tag">Google Maps</span>
+                        </div>
+                        <p>A college project built during the B.Sc. Computer Science program. Matches travelers heading to similar destinations using Firestore and provides real-time trip updates.</p>
+                        <div class="card-actions">
+                            <a href="https://github.com/ajmal-uk/explore-together" target="_blank" class="action-btn btn-primary">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="card-img-container">
+                        <img src="/assets/images/byte.png" alt="Byte AI">
+                    </div>
+                    <div class="card-content">
+                        <h2>Byte AI — Chatbot</h2>
+                        <div class="tech-stack">
+                            <span class="tag">Python</span>
+                            <span class="tag">Flask</span>
+                            <span class="tag">Gemini API</span>
+                            <span class="tag">Groq</span>
+                        </div>
+                        <p>A ChatGPT-style lightweight AI assistant supporting multiple LLM providers. Designed with a clean UI and hosted on PythonAnywhere for public testing.</p>
+                        <div class="card-actions">
+                            <a href="https://byte.pythonanywhere.com" target="_blank" class="action-btn btn-primary">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="copyright">
+        <p>Copyright © Ajmal U K. Made with <i class="fas fa-heart"></i></p>
+    </div>
+
+    <script>
+        // Mobile Menu Logic (Exact match to Home Page)
+        var sidemenu = document.getElementById('sidemenu');
+        function openmenu() {
+            sidemenu.style.right = "0";
+        }
+        function closemenu() {
+            sidemenu.style.right = "-200px";
+        }
+    </script>
+</body>
+</html>
