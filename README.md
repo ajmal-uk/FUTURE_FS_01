@@ -77,44 +77,7 @@ These are examples of my previous work, integrated into the portfolio:
 - **Core:** HTML5, CSS3 (Flexbox/Grid), Vanilla JavaScript.
 - **Icons:** Font Awesome.
 - **Form Handling:** Google Apps Script.
-- **Hosting (Demos):** PythonAnywhere for Flask apps.
-- **Deployment:** GitHub Pages, Netlify, or Vercel recommended.
-
----
-
-## 🚀 Quick Start (Local Setup)
-
-Static site—no build required!
-
-### Option 1: Python Server
-```bash
-python3 -m http.server 8000
-# Visit http://localhost:8000
-```
-
-### Option 2: Node.js (with `serve`)
-```bash
-npx serve -s .
-# Visit http://localhost:5000
-```
-
-### Option 3: Open Directly
-Double-click `index.html` (note: contact form may not work due to CORS—use a server).
-
----
-
-## 🚀 Deployment Guide
-
-### GitHub Pages (Free)
-1. Push to GitHub (`main` branch).
-2. Settings → Pages → Source: `main` / root.
-3. Live at: `https://<username>.github.io/FUTURE_FS_01`.
-
-### Netlify/Vercel
-1. Connect repo via GitHub.
-2. No build command needed (static site).
-3. Get HTTPS, custom domain, and auto-deploys.
-
+- **Deployment:** GitHub Pages
 ---
 
 ## 📂 Project Structure
@@ -132,8 +95,6 @@ FUTURE_FS_01/
     └── main.js         # Scripts
 ```
 
-*Pro Tip: Extract inline CSS/JS to these files for better organization (already suggested in improvements).*
-
 ---
 
 ## 📬 Contact & Socials
@@ -145,31 +106,6 @@ FUTURE_FS_01/
 
 ---
 
-## ✨ Improvements Implemented / To-Do
-
-- [x] Use relative paths for assets (e.g., `assets/img/`).
-- [x] Add `rel="noopener noreferrer"` to external links.
-- [x] Implement `loading="lazy"` and `alt` attributes for images.
-- [x] Add project badges in table.
-- [ ] Integrate optional backend (e.g., Node.js for advanced form handling).
-- [ ] Add video demo to LinkedIn post.
-
----
-
 ## 📝 License
 
 MIT License—fork, modify, and use freely (attribution appreciated).
-
----
-
-## 🔥 LinkedIn Post Template
-
-```
-Excited to share my Task 1 completion for the Future Interns Full Stack Web Development Internship! 🚀
-
-Built a responsive portfolio site with HTML/CSS/JS, featuring a contact form, project gallery, and dark theme. This self-paced program is boosting my skills—grateful for the opportunity!
-
-Live Demo: https://ajmal-uk.github.io/FUTURE_FS_01
-Repo: https://github.com/ajmal-uk/FUTURE_FS_01
-
-#FullStack #WebDevelopment #Portfolio #Internship #FutureInterns #Coding
