@@ -23,9 +23,6 @@ This project is Task 1 for the **Full Stack Web Development Internship** under t
 - **Guidelines:** Maintain public GitHub repos (e.g., "FUTURE_FS_01"), submit via mid-month form, post updates on LinkedIn (mandatory after each task), and focus on domain-specific work.
 - **Timeline:** Offer letter received → Tasks & submissions → Certificate/LoR processed.
 
-For verification:
-- **Offer Letter:** [`assets/docs/MUHAMMED_AJMAL_U_K_Offer_Letter.pdf`](./assets/docs/MUHAMMED_AJMAL_U_K_Offer_Letter.pdf)
-- **Internship Brochure:** [`assets/docs/Future_Interns_Full_Stack_Web_Development.pdf`](./assets/docs/Future_Interns_Full_Stack_Web_Development.pdf)
 
 *Note: Move the provided PDF files to `assets/docs/` and commit them for proper linking.*
 
