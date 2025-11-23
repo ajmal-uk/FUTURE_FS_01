@@ -5,53 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Future Intern - Task 1 Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <style>
-        * {
+* {
             margin: 0;
             padding: 0;
             font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             box-sizing: border-box;
         }
-        html {
+html {
             scroll-behavior: smooth;
         }
-        body {
+body {
             background-color: #080808;
             color: #fff;
         }
-        #header {
+#header {
             width: 100%;
             height: 100vh;
-            /* Placeholder background - replace with your image path */
-            background-image: url('/assets/images/background.png'); 
+            background-image: url('/assets/images/background.png');
             background-size: cover;
             background-position: center;
         }
-        .container {
+.container {
             padding: 10px 10%;
         }
-        nav {
+nav {
             display: flex;
             align-items: center;
             justify-content: space-between;
             flex-wrap: wrap;
         }
-        .logo {
+.logo {
             width: 140px;
         }
-        nav ul li {
+nav ul li {
             display: inline-block;
             list-style: none;
             margin: 10px 20px;
         }
-        nav ul li a {
+nav ul li a {
             color: #fff;
             text-decoration: none;
             font-size: 18px;
             position: relative;
         }
-        nav ul li a::after {
+nav ul li a::after {
             content: '';
             width: 0;
             height: 3px;
@@ -61,58 +59,59 @@
             bottom: -6px;
             transition: 0.5s;
         }
-        nav ul li a:hover::after {
+nav ul li a:hover::after {
             width: 100%;
         }
-        .header-text {
+.header-text {
             margin-top: 20%;
             font-size: 30px;
         }
-        .header-text h1 {
+.header-text h1 {
             font-size: 60px;
             margin-top: 20px;
         }
-        .header-text h1 span {
+.header-text h1 span {
             color: #ff004f;
         }
-        
-        /* About Section */
-        #about {
+
+/* About Section */
+#about {
             padding: 80px 0;
             color: #ababab;
+            min-height: 100vh;
         }
-        .row {
+.row {
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
         }
-        .about-col-1 {
+.about-col-1 {
             flex-basis: 35%;
         }
-        .about-col-1 img {
+.about-col-1 img {
             width: 100%;
             border-radius: 15px;
         }
-        .about-col-2 {
+.about-col-2 {
             flex-basis: 60%;
         }
-        .sub-title {
+.sub-title {
             font-size: 60px;
             font-weight: 600;
             color: #fff;
         }
-        .tab-titles {
+.tab-titles {
             display: flex;
             margin: 20px 0 40px;
         }
-        .tab-links {
+.tab-links {
             margin-right: 50px;
             font-size: 18px;
             font-weight: 500;
             cursor: pointer;
             position: relative;
         }
-        .tab-links::after {
+.tab-links::after {
             content: '';
             width: 0;
             height: 3px;
@@ -122,35 +121,51 @@
             bottom: -8px;
             transition: 0.5s;
         }
-        .tab-links.active-link:after {
+.tab-links.active-link:after {
             width: 50%;
         }
-        .tab-contents ul li {
+.tab-contents ul li {
             list-style: none;
             margin: 10px 0;
         }
-        .tab-contents ul li span {
+.tab-contents ul li span {
             color: #b54769;
             font-size: 14px;
         }
-        .tab-contents {
+.tab-contents {
             display: none;
         }
-        .tab-contents.active-tab {
+.tab-contents.active-tab {
             display: block;
         }
 
-        /* Services Section */
-        .services {
+/* Services Section */
+#services {
+            padding: 80px 0;
+            min-height: 100vh;
+        }
+.services {
             padding: 30px 0;
         }
-        .services-list {
+.services-list {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             grid-gap: 40px;
             margin-top: 50px;
         }
-        .services-list div {
+.services-list {
+            grid-template-columns: 1fr;
+        }
+@media (min-width: 601px) {
+.services-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+@media (min-width: 992px) {
+.services-list {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+.services-list div {
             background: #262626;
             padding: 40px;
             font-size: 13px;
@@ -158,49 +173,50 @@
             border-radius: 10px;
             transition: background 0.5s, transform 0.5s;
         }
-        .services-list div i {
+.services-list div i {
             font-size: 50px;
             margin-bottom: 30px;
         }
-        .services-list div h2 {
+.services-list div h2 {
             font-size: 30px;
             font-weight: 500;
             margin-bottom: 15px;
         }
-        .services-list div a {
+.services-list div a {
             text-decoration: none;
             color: #fff;
             font-size: 12px;
             margin-top: 20px;
             display: inline-block;
         }
-        .services-list div:hover {
+.services-list div:hover {
             background-color: #ff004f;
             transform: translateY(-10px);
         }
 
-        /* Portfolio Section */
-        #portfolio {
-            padding: 50px 0;
+/* Portfolio Section */
+#portfolio {
+            padding: 80px 0;
+            min-height: 100vh;
         }
-        .work-list {
+.work-list {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             grid-gap: 40px;
             margin-top: 50px;
         }
-        .work {
+.work {
             border-radius: 10px;
             position: relative;
             overflow: hidden;
         }
-        .work img {
+.work img {
             width: 100%;
             border-radius: 10px;
             display: block;
             transition: transform 0.5s;
         }
-        .layer {
+.layer {
             width: 100%;
             height: 0;
             background: linear-gradient(rgba(0,0,0,0.6), #ff004f);
@@ -218,11 +234,11 @@
             font-size: 14px;
             transition: height 0.5s;
         }
-        .layer h3 {
+.layer h3 {
             font-weight: 500;
             margin-bottom: 20px;
         }
-        .layer a {
+.layer a {
             margin-top: 20px;
             color: #ff004f;
             text-decoration: none;
@@ -234,13 +250,13 @@
             border-radius: 50%;
             text-align: center;
         }
-        .work:hover img {
+.work:hover img {
             transform: scale(1.1);
         }
-        .work:hover .layer {
+.work:hover .layer {
             height: 100%
         }
-        .btn {
+.btn {
             display: block;
             margin: 50px auto;
             width: fit-content;
@@ -251,153 +267,215 @@
             color: #fff;
             transition: background 0.5s;
         }
-        .btn:hover {
+.btn:hover {
             background: #ff004f;
         }
 
-        /* Contact Section */
-        .contact-left {
-            flex-basis: 35%;
-        }
-        .contact-right {
-            flex-basis: 60%;
-        }
-        .contact-left p {
-            margin-top: 30px;
-        }
-        .contact-left p i {
-            color: #ff004f;
-            margin-right: 15px;
-            font-size: 25px;
-        }
-        .social-icons {
-            margin-top: 30px;
-        }
-        .social-icons a {
-            text-decoration: none;
-            font-size: 30px;
-            margin-right: 15px;
-            color: #ababab;
-            display: inline-block;
-            transition: transform 0.5s;
-        }
-        .social-icons a:hover {
-            color: #ff004f;
-            transform: translateY(-5px);
-        }
-        .btn.btn2 {
-            display: inline-block;
-            background: #ff004f;
-        }
-        .contact-right form {
-            width: 100%;
-        }
-        form input,
-        form textarea {
-            width: 100%;
-            border: 0;
-            outline: none;
-            background: #262626;
-            padding: 15px;
-            margin: 15px 0;
-            color: #fff;
-            font-size: 18px;
-            border-radius: 6px;
-        }
-        form .btn2 {
-            padding: 14px 60px;
-            font-size: 18px;
-            margin-top: 20px;
-            cursor: pointer;
-        }
-        .copyright {
-            width: 100%;
-            text-align: center;
-            padding: 20px 0;
-            background: #262626;
-            font-weight: 300;
-            margin-top: 20px;
-        }
-        .copyright i {
-            color: #ff004f;
-        }
+/* Contact Section — FIXED */
+#contact {
+    padding: 80px 0 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
-        /* Mobile Responsive CSS */
-        nav .fa-bars, nav .fa-times {
-            display: none;
-        }
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
 
-        @media only screen and (max-width: 600px) {
-            #header {
-                background-image: url('/assets/images/phone-background.png');
-            }
-            .header-text {
-                margin-top: 100%;
-                font-size: 16px;
-            }
-            .header-text h1 {
-                font-size: 30px;
-            }
-            
-            /* Burger Menu Icon */
-            nav .fa-bars {
-                display: block;
-                font-size: 25px;
-                cursor: pointer;
-            }
-            
-            nav ul {
-                background: #ff004f;
-                position: fixed;
-                top: 0;
-                right: -200px; /* Hidden by default */
-                width: 200px;
-                height: 100vh;
-                padding-top: 50px;
-                z-index: 1000; /* Ensures menu is on top */
-                transition: right 0.5s;
-            }
-            nav ul li {
-                display: block;
-                margin: 25px;
-            }
-            
-            /* Close Menu Icon */
-            nav ul .fa-times {
-                display: block;
-                position: absolute;
-                top: 25px;
-                left: 25px;
-                cursor: pointer;
-                font-size: 25px;
-                color: #fff;
-            }
+.contact-left {
+    flex-basis: 35%;
+}
 
-            .sub-title {
-                font-size: 40px;
-            }
-            .about-col-1,
-            .about-col-2 {
-                flex-basis: 100%;
-            }
-            .about-col-1 {
-                margin-bottom: 30px;
-            }
-            .about-col-2 p {
-                font-size: 14px;
-            }
-            .tab-links {
-                font-size: 16px;
-                margin-right: 20px;
-            }
-            .contact-left,
-            .contact-right {
-                flex-basis: 100%;
-            }
-            .copyright {
-                font-size: 14px;
-            }
-        }
+.contact-right {
+    flex-basis: 60%;
+}
+
+.contact-left p {
+    margin-top: 30px;
+}
+
+.contact-left p i {
+    color: #ff004f;
+    margin-right: 15px;
+    font-size: 25px;
+}
+
+.social-icons {
+    margin-top: 30px;
+}
+
+.social-icons a {
+    text-decoration: none;
+    font-size: 30px;
+    margin-right: 15px;
+    color: #ababab;
+    display: inline-block;
+    transition: transform 0.5s;
+}
+
+.social-icons a:hover {
+    color: #ff004f;
+    transform: translateY(-5px);
+}
+
+.btn.btn2 {
+    display: inline-block;
+    background: #ff004f;
+    border: none;
+    cursor: pointer;
+}
+
+.contact-right form {
+    width: 100%;
+}
+
+form input,
+form textarea {
+    width: 100%;
+    border: 0;
+    outline: none;
+    background: #262626;
+    padding: 15px;
+    margin: 15px 0;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 6px;
+}
+
+form .btn2 {
+    padding: 14px 60px;
+    font-size: 18px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+/* Copyright — now properly at bottom of contact section */
+.copyright {
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    background: #262626;
+    font-weight: 300;
+    margin: 0;
+    position: static;
+    border-top: 1px solid #333;
+}
+
+.copyright i {
+    color: #ff004f;
+}
+
+/* Mobile Responsive CSS */
+nav .fa-bars, nav .fa-times {
+    display: none;
+}
+
+@media only screen and (max-width: 600px) {
+    #header {
+        background-image: url('/assets/images/phone-background.png');
+    }
+
+    .header-text {
+        margin-top: 100%;
+        font-size: 16px;
+    }
+
+    .header-text h1 {
+        font-size: 30px;
+    }
+
+    /* About section: Center and reduce image */
+    .about-col-1 img {
+        width: 70%;
+        margin: 0 auto;
+    }
+
+    /* Burger Menu Icon */
+    nav .fa-bars {
+        display: block;
+        font-size: 25px;
+        cursor: pointer;
+    }
+
+    nav ul {
+        background: #ff004f;
+        position: fixed;
+        top: 0;
+        right: -200px;
+        width: 200px;
+        height: 100vh;
+        padding-top: 50px;
+        z-index: 1000;
+        transition: right 0.5s;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 25px;
+    }
+
+    nav ul .fa-times {
+        display: block;
+        position: absolute;
+        top: 25px;
+        left: 25px;
+        cursor: pointer;
+        font-size: 25px;
+        color: #fff;
+    }
+
+    .sub-title {
+        font-size: 40px;
+    }
+
+    .about-col-1,
+    .about-col-2 {
+        flex-basis: 100%;
+    }
+
+    .about-col-1 {
+        margin-bottom: 30px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .about-col-2 p {
+        font-size: 14px;
+    }
+
+    .tab-links {
+        font-size: 16px;
+        margin-right: 20px;
+    }
+
+    .contact-left,
+    .contact-right {
+        flex-basis: 100%;
+    }
+
+    /* Update contact container on mobile */
+    .contact-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .copyright {
+        font-size: 14px;
+        padding: 15px 0;
+    }
+}
+
+/* Ensure all main sections are at least full viewport height */
+#about,
+#services,
+#portfolio {
+    min-height: 100vh;
+}
     </style>
 </head>
 <body>
@@ -417,7 +495,7 @@
             </nav>
             <div class="header-text">
                 <p>Fullstack Developer</p>
-                <h1>Hi, I'm <span>Ajmal<br></span>UK From India</h1>
+                <h1>Hi, I'm <span>Ajmal<br></span></h1>
             </div>
         </div>
     </div>
@@ -431,13 +509,11 @@
                 <div class="about-col-2">
                     <h1 class="sub-title">About Me</h1>
                     <p>I am Muhammed Ajmal U K, a Computer Science graduate and MCA student skilled in full-stack development, AI chatbot building, and data analytics.</p>
-                    
                     <div class="tab-titles">
                         <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
                         <p class="tab-links" onclick="opentab('experience')">Experience</p>
                         <p class="tab-links" onclick="opentab('education')">Education</p>
                     </div>
-                    
                     <div class="tab-contents active-tab" id="skills">
                         <ul>
                             <li><span>Fullstack</span><br>Developer</li>
@@ -542,27 +618,25 @@
     </div>
 
     <div id="contact">
-        <div class="container">
-            <div class="row">
-                <div class="contact-left">
-                    <h1 class="sub-title">Contact Me</h1>
-                    <p><i class="fas fa-paper-plane"></i>ajmaluk.me@gmail.com</p>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.linkedin.com/in/ajmal-uk" target="_blank"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/ajmal-uk" target="_blank"><i class="fab fa-github"></i></a>
-                        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-                    </div>
-                    <a href="/assets/images/my-cv.pdf" class="btn btn2">Download CV</a>
+        <div class="container contact-container">
+            <div class="contact-left">
+                <h1 class="sub-title">Contact Me</h1>
+                <p><i class="fas fa-paper-plane"></i>ajmaluk.me@gmail.com</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/ajmal-uk" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/ajmal-uk" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
                 </div>
-                <div class="contact-right">
-                    <form>
-                        <input type="text" name="name" placeholder="Your Name" required>
-                        <input type="email" name="email" placeholder="Your Email" required>
-                        <textarea name="message" rows="6" placeholder="Your Message"></textarea>
-                        <button type="submit" class="btn btn2">Submit</button>
-                    </form>
-                </div>
+                <a href="/assets/images/my-cv.pdf" class="btn btn2">Download CV</a>
+            </div>
+            <div class="contact-right">
+                <form name="contact-form" class="contact-form">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" rows="6" placeholder="Your Message"></textarea>
+                    <button type="submit" class="btn btn2">Submit</button>
+                </form>
             </div>
         </div>
         <div class="copyright">
@@ -574,12 +648,33 @@
         // Tab switching logic
         var tablinks = document.getElementsByClassName("tab-links");
         var tabcontents = document.getElementsByClassName("tab-contents");
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxSpUI78MBNg7B7QAg_0gSiADNTljJ-OXqw9JWJiKDb51z-CXxmxvVMnzjfGGz88_iA/exec';
+        const form = document.forms['contact-form'];
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => {
+                    return response.text().then(text => {
+                        try { return JSON.parse(text); } catch (err) { return text; }
+                    });
+                })
+                .then(result => {
+                    console.log('Success!', result);
+                    alert('Submitted successfully');
+                    form.reset();
+                })
+                .catch(error => {
+                    console.error('Error!', error);
+                    alert('Submission failed — check console for details');
+                });
+        });
 
         function opentab(tabname) {
-            for (tablink of tablinks) {
+            for (let tablink of tablinks) {
                 tablink.classList.remove("active-link");
             }
-            for (tabcontent of tabcontents) {
+            for (let tabcontent of tabcontents) {
                 tabcontent.classList.remove("active-tab");
             }
             event.currentTarget.classList.add("active-link");
@@ -588,11 +683,9 @@
 
         // Mobile Menu Logic
         var sidemenu = document.getElementById('sidemenu');
-
         function openmenu() {
             sidemenu.style.right = "0";
         }
-
         function closemenu() {
             sidemenu.style.right = "-200px";
         }
